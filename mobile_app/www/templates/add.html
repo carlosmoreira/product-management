@@ -1,0 +1,16 @@
+<ion-view title="Add Product">
+    <ion-content padding="true" class="has-header">
+        <button ng-click="scanBarCode()" class="button button-light button-icon  icon-left ion-camera">Scan</button>
+        <form>
+            <label class="item item-input" name="name">
+                <span class="input-label"></span>
+                <input type="text" placeholder="Product Name">
+            </label>
+            <label class="item item-input" name="price">
+                <span class="input-label"></span>
+                <input type="text" placeholder="Product Price">
+            </label>
+        </form>
+        <button ng-click="addProduct()" class="button button-stable button-block  icon-left ion-android-add">Add Product</button>
+    </ion-content>
+</ion-view>
