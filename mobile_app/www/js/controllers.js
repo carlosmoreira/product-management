@@ -42,7 +42,7 @@ angular.module('starter.controllers', [])
   }; 
 })
 
-.controller('PlaylistsCtrl', function($scope, $stateParams,   $ionicModal , Data) {
+.controller('PlaylistsCtrl', function($scope, $stateParams,   $ionicModal , $state , Data) {
   
   var selectedProduct = $stateParams.pId;
 
@@ -59,7 +59,16 @@ angular.module('starter.controllers', [])
     }); 
   }
 
-  
+  $scope.doRefresh = function() {
+    console.log('Refreshing...')
+    Data.get('product').then(function(products){
+      $scope.products = products;
+    })
+     .finally(function() {
+       // Stop the ion-refresher from spinning
+       $scope.$broadcast('scroll.refreshComplete');
+     });
+  };
 
   $scope.selectProduct = function(product){
     $scope.selectedProduct = product;
@@ -87,12 +96,14 @@ angular.module('starter.controllers', [])
       console.log(product);
       Data.put('product/' + product.id , product);
       $scope.product = product;
-      $scope.modal.hide(); 
+      $scope.modal.hide();  
 
   }
 
-  $scope.addProduct = function(){
-    console.log("Prod Added");    
+  $scope.addProduct = function(product){
+    Data.post('product', product);
+    $state.go('app.playlists');
+    
   };
 
 })

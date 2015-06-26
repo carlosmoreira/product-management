@@ -72,7 +72,7 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'
     views: {
       'menuContent': {
         templateUrl: "templates/add.html",
-        controller: 'ProductCtrl'
+        controller: 'PlaylistsCtrl'
       }
     }
   });
