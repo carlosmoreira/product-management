@@ -20,7 +20,4 @@ Things To Do:
 - Finish the Android App to be the same as the web app
 - Add a way to see the total of cost of all items in inventory
 - Be able to raise and lower stock inventory without hitting 'edit'
-- Have sortable columns
-
-
-
+- Have sortable columns 
